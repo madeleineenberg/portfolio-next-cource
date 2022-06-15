@@ -1,7 +1,10 @@
 import React from 'react'
+import BaseLayout from '../components/shared/BaseLayout';
 
 export default function Portfolios() {
   return (
-    <div>portfolio page</div>
-  )
+    <BaseLayout>
+      <h1>This is the Portfolio page</h1>
+    </BaseLayout>
+  );
 }

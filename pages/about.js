@@ -1,7 +1,11 @@
 import React from 'react'
+import BaseLayout from '../components/shared/BaseLayout';
+
 
 export default function About() {
   return (
-    <div>This is the About page</div>
-  )
+    <BaseLayout>
+      <h1>This is the About page</h1>
+    </BaseLayout>
+  );
 }

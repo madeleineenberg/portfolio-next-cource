@@ -1,7 +1,9 @@
  
-
+import BaseLayout from "../components/shared/BaseLayout";
 export default function Home() {
   return (
-    <h2>Helloo index page</h2>
-  )
+    <BaseLayout>
+      <h1>This is the Home page</h1>
+    </BaseLayout>
+  );
 }
