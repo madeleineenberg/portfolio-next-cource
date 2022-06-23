@@ -1,11 +1,15 @@
-import React from 'react'
-import Header from './Header'
+import Header from '../shared/Header';
 
-export default function BaseLayout({children}) {
+const BaseLayout = (props) => {
+  const { className, children } = props;
   return (
-    <>
-    <Header/>
-    {children}
-    </>
-  )
-}
+    <div className='layout-container'>
+      <Header />
+      <main className={`cover ${className}`}>
+        <div className='wrapper'>{children}</div>
+      </main>
+    </div>
+  );
+};
+
+export default BaseLayout;
