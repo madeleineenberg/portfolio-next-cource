@@ -1,39 +1,31 @@
-import React from 'react'
+
 import BaseLayout from '@/components/shared/BaseLayout'
-import axios from 'axios';
 import Link from 'next/link';
 import BasePage from '@/components/BasePage';
+import { useGetData } from '@/actions';
 
-export default function Portfolios({posts}) {
-   
+export default function Portfolios() {
+const { data, error, loading } = useGetData('/api/v1/posts');
+ 
   return (
     <BaseLayout>
-    <BasePage>
-      <h1>This is the Portfolio page</h1>
-      <ul>
-          { posts && posts.map((post) => {
-              return(
-                  <li key={post.id}>
-                    <Link href={`/portfolios/${post.id}`}>
+      <BasePage>
+        <h1>This is the Portfolio page</h1>
+        {loading && <p>Loading data...</p>}
+        <ul>
+          {data &&
+            data.map((post) => {
+              return (
+                <li key={post.id}>
+                  <Link href={`/portfolios/${post.id}`}> 
                     <a>{post.title}</a>
-                    </Link>
-                  </li>
-              )
-          })}
-      </ul>
-     </BasePage>
+                  </Link>
+                </li>
+              );
+            })}
+        </ul>
+        {error && <div className='alert alert-danger'>{error.message}</div>}
+      </BasePage>
     </BaseLayout>
   );
 }
-
-Portfolios.getInitialProps = async () => {
-  let posts = [];
-  try {
-    const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
-    posts = res.data;
-  } catch (e) {
-    console.error(e);
-  }
-
-  return { posts: posts.slice(0, 10) };
-};
