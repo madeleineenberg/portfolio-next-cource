@@ -1,12 +1,12 @@
 import React from 'react'
 import BaseLayout from '@/components/shared/BaseLayout'
 import { useRouter } from 'next/router'
-import { useGetData } from '@/actions';
+import { useGetPostsById } from '@/actions';
 import BasePage from '@/components/BasePage';
 
 export default function Portfolio() {
     const router = useRouter();
-    const {data: portfolio, error, loading} = useGetData(router.query.id ?  `/api/v1/posts/${router.query.id}` : null)
+    const {data: portfolio, error, loading} = useGetPostsById(router.query.id)
   return (
     <BaseLayout>
       <BasePage>

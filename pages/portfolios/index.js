@@ -2,10 +2,10 @@
 import BaseLayout from '@/components/shared/BaseLayout'
 import Link from 'next/link';
 import BasePage from '@/components/BasePage';
-import { useGetData } from '@/actions';
+import { useGetPosts} from '@/actions';
 
 export default function Portfolios() {
-const { data, error, loading } = useGetData('/api/v1/posts');
+const { data, error, loading } = useGetPosts();
  
   return (
     <BaseLayout>
