@@ -1,13 +1,15 @@
- 
-import BaseLayout from "@/components/shared/BaseLayout";
-import {Container, Row, Col} from 'reactstrap'
+import BaseLayout from '@/components/shared/BaseLayout';
+import { Container, Row, Col } from 'reactstrap';
 import Typed from 'react-typed';
+import { useGetUser } from '@/actions/user';
 
-const roles = ['Developer', 'Film photographer', 'Tech Lover']
+const roles = ['Developer', 'Film photographer', 'Tech Lover'];
 
 export default function Home() {
+  const { data, loading } = useGetUser();
+
   return (
-    <BaseLayout className='cover'>
+    <BaseLayout className='cover' user={data} loading={loading}>
       <div className='main-section'>
         <div className='background-image'>
           <img src='/images/ros_spegel.jpg' />
@@ -43,7 +45,7 @@ export default function Home() {
               <div className='hero-welcome-text'>
                 <h1>
                   Welcome to the portfolio website of Madeleine Enberg. Get
-                  informed, collaborate and discover projects I was working on
+                  informed, collaborate and discover projects I've worked with
                   through the years!
                 </h1>
               </div>
