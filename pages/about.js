@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 import BaseLayout from '@/components/shared/BaseLayout';
 import BasePage from '@/components/BasePage';
-import  {useGetUser} from '@/actions/user'
-
+import { useGetUser } from '@/actions/user';
 
 export default function About() {
-  const {data, loading} = useGetUser();
+  const { data, loading } = useGetUser();
+  debugger;
   return (
     <BaseLayout user={data} loading={loading}>
       <BasePage>
