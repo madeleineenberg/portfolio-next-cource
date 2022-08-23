@@ -6,13 +6,16 @@ import { Row, Col } from 'reactstrap';
 import PortfolioForm from '@/components/PortfolioForm';
 
 const PortfolioNew = ({ user, loading: userLoading }) => {
-  debugger;
+  const createPortfolio = (data) => {
+    alert(JSON.stringify(data));
+  };
+
   return (
     <BaseLayout user={user} loading={userLoading}>
       <BasePage header='Create Portfolio'>
         <Row>
           <Col md='6'>
-            <PortfolioForm />
+            <PortfolioForm onSubmit={createPortfolio} />
           </Col>
         </Row>
       </BasePage>
