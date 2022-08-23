@@ -8,8 +8,8 @@ export default function About() {
   debugger;
   return (
     <BaseLayout user={data} loading={loading}>
-      <BasePage>
-        <h1>This is the About page</h1>
+      <BasePage header='About'>
+        <h1>This is about me</h1>
       </BasePage>
     </BaseLayout>
   );
